@@ -1,83 +1,60 @@
-# 🧠 MindCity
+# 🧠 BrainWeave
 
-**Transform documents into insightful mind maps using AI**
+**Transform PDF documents into insightful, hierarchical mind maps using AI**
 
-MindCity analyzes PDF documents and extracts key concepts, themes, and insights, organizing them into a hierarchical mind map structure.
+🔗 **Live Demo:** [brainweave-wubg5q3hwszxnm53gdpzdx.streamlit.app](https://brainweave-wubg5q3hwszxnm53gdpzdx.streamlit.app/)
 
-## Features
+---
 
-- 📄 **PDF Processing** - Extract and clean text while preserving structure
-- 🧠 **AI-Powered Analysis** - Uses Groq LLM to identify meaningful concepts
-- 🗺️ **Interactive Visualization** - Multiple view formats (visual, tree, markdown)
-- 💾 **Export Options** - Download as JSON, Markdown, or text
-- ⚡ **Fast** - Processes documents in seconds
+## ✨ Features
 
-## Installation
+| Feature | Description |
+|---------|-------------|
+| 📄 **PDF Processing** | Extract and clean text while preserving document structure |
+| 🧠 **AI-Powered Analysis** | Uses Groq LLM (Llama 3.1) to identify key concepts and themes |
+| 🗺️ **Hierarchical Visualization** | True mind map layout with central node and radiating branches |
+| 💾 **Multiple Export Formats** | Download as JSON, Markdown, or Text Tree |
+| ⚡ **Fast Processing** | Processes documents in seconds |
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/mindcity.git
-cd mindcity
+---
 
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-GROQ_API_KEY=your_groq_api_key_here
-```
-
-Get your API key from [Groq Console](https://console.groq.com/).
-
-## Usage
-
-```bash
-streamlit run app/streamlit_app.py
-```
-
-Then open http://localhost:8501 in your browser.
-
-## Project Structure
+## 🖼️ How It Works
 
 ```
-mindcity/
+PDF Upload → Text Extraction → Smart Chunking → AI Analysis → Mind Map Generation
+```
+
+1. **Extract** - PDF text extracted using PyMuPDF
+2. **Clean** - Preserves paragraph structure while removing noise
+3. **Split** - Intelligent chunking at sentence/paragraph boundaries  
+4. **Analyze** - Samples from entire document sent to LLM
+5. **Generate** - AI creates hierarchical mind map
+6. **Visualize** - Interactive display with branches radiating from center
+
+---
+
+## 🗂️ Project Structure
+
+```
+brainweave/
 ├── app/
-│   └── streamlit_app.py    # Main Streamlit application
+│   └── streamlit_app.py      # Streamlit web application
 ├── core/
-│   ├── pdf_parser.py       # PDF text extraction
-│   ├── text_cleaner.py     # Text cleaning & structure preservation
-│   ├── section_splitter.py # Smart document chunking
-│   ├── summarizer.py       # LLM-powered mind map generation
-│   └── mindmap_generator.py # Export utilities
+│   ├── pdf_parser.py         # PDF text extraction
+│   ├── text_cleaner.py       # Text preprocessing
+│   ├── section_splitter.py   # Smart document chunking
+│   ├── summarizer.py         # LLM-powered mind map generation
+│   └── mindmap_generator.py  # Export utilities
 ├── models/
-│   └── schemas.py          # Pydantic data models
+│   └── schemas.py            # Data models
 ├── utils/
-│   └── helpers.py          # Utility functions
-├── requirements.txt
-└── README.md
+│   └── helpers.py            # Helper functions
+└── requirements.txt
 ```
 
-## How It Works
+---
 
-1. **Extract** - PDF text is extracted using PyMuPDF
-2. **Clean** - Text is cleaned while preserving paragraph structure
-3. **Split** - Document is split at sentence/paragraph boundaries
-4. **Analyze** - Balanced samples from all parts are sent to LLM
-5. **Generate** - AI creates hierarchical mind map JSON
-6. **Visualize** - Interactive display with multiple view options
-
-## Mind Map Structure
-
-Output follows this JSON structure:
+## 🧩 Mind Map Output Structure
 
 ```json
 {
@@ -95,9 +72,26 @@ Output follows this JSON structure:
 ```
 
 **Constraints:**
-- Maximum 6 main branches
-- Maximum 4-5 items per branch
-- Maximum depth: 3-4 levels
+- Maximum **6** main branches
+- Maximum **4-5** items per branch
+- Maximum depth: **3-4** levels
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Streamlit
+- **AI/LLM:** Groq (Llama 3.1)
+- **PDF Processing:** PyMuPDF
+- **Data Validation:** Pydantic
+
+---
+
+## 👤 Author
+
+**Devi Keerthi**
+
+- GitHub: [@Devikeerthi000](https://github.com/Devikeerthi000)
 
 ## License
 
